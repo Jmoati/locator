@@ -4,8 +4,48 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "18c73df6a04d16b1a84485f5358938c2",
+    "content-hash": "d477dfd0cf795740e4c07656630f4b3e",
     "packages": [
+        {
+            "name": "gboudreau/nest-api",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/gboudreau/nest-api.git",
+                "reference": "906268852bfdc2a0708e4314aba9c8eeb4b6f7d5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/gboudreau/nest-api/zipball/906268852bfdc2a0708e4314aba9c8eeb4b6f7d5",
+                "reference": "906268852bfdc2a0708e4314aba9c8eeb4b6f7d5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "ext-json": "*",
+                "php": ">=5.0"
+            },
+            "type": "library",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "authors": [
+                {
+                    "name": "Guillaume Boudreau",
+                    "email": "guillaume@pommepause.com",
+                    "homepage": "https://www.pommepause.com",
+                    "role": "Developer"
+                }
+            ],
+            "description": "This is a simple library that will allow you to monitor and control your Nest Learning Thermostat, and Nest Protect.",
+            "homepage": "https://github.com/gboudreau/nest-api",
+            "keywords": [
+                "api",
+                "nest"
+            ],
+            "time": "2019-12-19T17:24:38+00:00"
+        },
         {
             "name": "guillaume-gagnaire/georide-api",
             "version": "v1.1.0",
@@ -1016,10 +1056,12 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "jmoati/icloud": 20
+        "jmoati/icloud": 20,
+        "gboudreau/nest-api": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],
-    "platform-dev": []
+    "platform-dev": [],
+    "plugin-api-version": "1.1.0"
 }

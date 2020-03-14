@@ -10,7 +10,8 @@
     "require": {
         "jmoati/icloud": "dev-master",
         "guillaume-gagnaire/georide-api": "^1.1",
-        "karpy47/php-mqtt-client": "^1.0"
+        "karpy47/php-mqtt-client": "^1.0",
+        "gboudreau/nest-api": "dev-master"
     },
     "require-dev": {
         "symfony/var-dumper": "^5.0"

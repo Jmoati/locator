@@ -11,8 +11,21 @@ use Jmoati\FindMyPhone\Model\Credential;
 
 require __DIR__.'/vendor/autoload.php';
 require __DIR__.'/secret.php';
+require __DIR__.'/vendor/gboudreau/nest-api/nest.class.php';
+
+$nest = new Nest(null, null, $issueToken, $cookie);
 
 while (1) {
+    $nestInfos = $nest->getDeviceInfo();
+
+    $nestInfos = [
+        'temperature' => $nestInfos->current_state->temperature,
+        'humidity' => $nestInfos->current_state->humidity,
+        'target_temperature' => $nestInfos->target->temperature,
+        'heating' => $nestInfos->current_state->heat,
+
+    ];
+
     $icloud = new IcloudClient(
         HttpClient::create(),
         new Credential($username, $icloudPassword)
@@ -29,6 +42,7 @@ while (1) {
     $mqttClient->setAuthentication($mqttUsername, $mqttPassword);
 
     $success = $mqttClient->sendConnect('findmyphone');
+
 
     if ($success) {
         array_walk($devices, function (Device $device) use ($mqttClient) {
@@ -53,6 +67,9 @@ while (1) {
         ]);
 
         $mqttClient->sendPublish('location/forza', $message);
+
+        $message = json_encode($nestInfos);
+        $mqttClient->sendPublish('thing/nest', $message);
 
         $mqttClient->sendDisconnect();
     }
