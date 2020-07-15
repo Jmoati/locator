@@ -19,7 +19,7 @@ while (1) {
     $nestInfos = $nest->getDeviceInfo();
 
     $nestInfos = [
-        'temperature' => $nestInfos->current_state->temperature,
+        'temperature' => round($nestInfos->current_state->temperature, 2),
         'humidity' => $nestInfos->current_state->humidity,
         'target_temperature' => $nestInfos->target->temperature,
         'heating' => $nestInfos->current_state->heat,
